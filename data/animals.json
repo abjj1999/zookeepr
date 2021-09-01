@@ -117,7 +117,17 @@
         "hungry"
       ],
       "id": "11"
+    },
+    {
+      "name": "AB",
+      "species": "Cat",
+      "diet": "folivore",
+      "personalityTraits": [
+        "hungry",
+        "zany",
+        "loving"
+      ],
+      "id": "12"
     }
-   
   ]
 }

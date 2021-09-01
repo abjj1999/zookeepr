@@ -9,6 +9,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 //prase incoming json data 
 app.use(express.json());
+//adding this allow us use static files like css, js frontend 
+app.use(express.static('public'));
 
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
@@ -108,6 +110,23 @@ app.post('/api/animals', (req, res) => {
     }
     //add animal to json file and animals array in ths function
     
+})
+
+//section 3
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+})
+
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'))
+})
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
 })
 
 app.listen(PORT, () => {
